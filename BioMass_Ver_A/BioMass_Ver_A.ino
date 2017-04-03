@@ -3,7 +3,7 @@
 // Measured data are saved and plotted through Matlab program
 // Author: Seokchan Yoo
 // Date: April-03-2017
-// Reference: AD5933 Library code is based on Il-Taek Kwon 
+// Reference: AD5933 Library codes are based on Il-Taek Kwon's work
 // URL Link: https://github.com/WuMRC/drive
 
 

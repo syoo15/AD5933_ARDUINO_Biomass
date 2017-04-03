@@ -55,7 +55,7 @@ elseif ask_input == 'B'
 	phi_array = {};
     fprintf(a,'%c','B');
     
-     for i = 1:91
+     for i = 1:91			% This must be matched to the # of step in Arduino Code
         % Data order will be: Frequency, Impedance, Phase
         freq = fscanf(a, '%i');
         imp = fscanf(a, '%f');
@@ -68,9 +68,9 @@ elseif ask_input == 'B'
        
      end
      
-     file_name = input('Please type the file name: ', 's');
+     file_name = input('Please type the file name: ', 's');			% Ask user input for csv file
      disp('Press Enter')
-     pause;
+     pause;								% Pause next lines of code until users press Enter
      name = strcat(file_name,'.csv');   % Full csv file name
 
 
@@ -84,7 +84,7 @@ elseif ask_input == 'B'
      csvwrite_with_headers(name,all_data,headers);
 
 
-     % Plot Code
+     % Plot Bode diagram of impedance and phase
      figure
      semilogx(A,B)
      title('Frequency vs. Impedance')
@@ -99,6 +99,21 @@ elseif ask_input == 'B'
      ylabel('Phase (rad)')
      %xlim([1000, 100000])
      
+    % Note for cut-off frequency calculation
+    % Max(Z) times sqrt(2) 
+    % For parallel RC circuit, max value will be R
+    % Then using f = 1/2pi(RC) to find capacitance
+    % 1/(f*2pi*R) = C
+
+    cut = (1/sqrt(2))*10000;		% 10000 is the value of R in parallel with a capacitor
+    [c idx] = min(abs(B-cut));		% Find an index of closest value in impedance array
+    closestVal = B(idx);
+    disp(closestVal)
+
+    closeF = A(idx);				% Find frequency 
+    cap = 1/(closeF*2*pi*10000);	% Calculate cut-off frequency 
+    disp(cap)						% Display estimated capacitance value
+     
      elseif ask_input == 'C'
         fclose(a);
         isconnected = 0;
@@ -106,7 +121,3 @@ elseif ask_input == 'B'
 end
 end
 
-
-% Note for cut-off frequency calculation
-% Max Z times sqrt(2) 
-% Then using 1/2pi(RC) to find capacitance
