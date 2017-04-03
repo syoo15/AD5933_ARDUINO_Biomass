@@ -1,10 +1,12 @@
 % Arduino_AD5933 Serial Communication using MATLAB
+% Automatically store measured data everytime users press B and plot in log scale
 % Date: 2017-03-03
+% Author: Seokchan Yoo
 % Press A = Temperature Measurement
 % Press B = Impedance Measurement
-
-
 % Note: fscanf print only one Serial print of Arduino. Need to be careful
+% Note2: First run calibration step then proceed into while loop until users Press C to close serial connection with Arduino
+
 clc;
 clear all;
 
@@ -103,11 +105,6 @@ elseif ask_input == 'B'
         disp('Disconnecting from the device...')
 end
 end
-
-
-% Button not working correctly
-%serial_com_gui;
-
 
 
 % Note for cut-off frequency calculation
