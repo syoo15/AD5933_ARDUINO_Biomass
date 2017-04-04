@@ -29,6 +29,9 @@ Modifiable variables are: <br/>
 * AD5933.setPGA() : Gain setting. GAIN_1 for x1. GAIN_5 for x5.
 * AD5933.setRange() : Output Excitation Voltage setting. RANGE_1 for 2V, RANGE_2 for 1V, RANGE_3 for 0.4V, RANGE_4 for 0.2V. Need to select carefully depending on the range of impedance to be measured. <br/>
 
+## To do..
+* Plot impedance and phase in one figure, instead of two separate ones.
+* Check if the program is estimating capacitance value accurately.
 
 ## References
 1. AD5933 driver codes are based on Il-Taek Kwon's work </br>
