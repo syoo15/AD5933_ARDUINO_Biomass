@@ -6,20 +6,19 @@
 // Reference: AD5933 Library codes are based on Il-Taek Kwon's work
 // URL Link: https://github.com/WuMRC/drive
 
-
-#define cycles_base 15
-#define cycles_multiplier 1
-#define start_frequency 1000
-#define cal_samples 1
-
 #include "AD5933.h"
 #include <Wire.h>
 
 
+#define cycles_base 15
+#define cycles_multiplier 1
+#define start_frequency 1000          // Modify this to set start frequency
+#define cal_samples 1                 // Modify this to set # of samples to be measured for taking the average (works only for calibration.)
+
 // Constant Variable Declarations
 // Future work: Store arrays efficiently so that we can save memory space and increase a number of frequency increment
-const int numofIncrement = 90;
-const double calResistance = 10000;
+const int numofIncrement = 90;        // Modify this to set # of frequency increment. Limited to 90 due to the memory.
+const double calResistance = 10000;   // Modify this to be matched to the value of calibration resistance
 double gainF[numofIncrement+1];
 double phShift[numofIncrement+1];
 double impVal[numofIncrement+ 1];
@@ -86,7 +85,7 @@ void loop()
     }
 }
 
-// Print Gain Factor array
+// Print Gain Factor array (used for debugging)
 void printGainFactor(){
   for(int i = 0; i < numofIncrement+1; i++)
   {
