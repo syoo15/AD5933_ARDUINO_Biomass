@@ -27,7 +27,7 @@ Modifiable variables are: <br/>
 * calResistance : The value of calibration resistor.
 * AD5933.setStepSize(value) : Frequency step size. This should always be real number.
 * AD5933.setPGA() : Gain setting. GAIN_1 for x1. GAIN_5 for x5.
-* AD5933.setRange() : Output Excitation Voltage setting. RANGE_1 for 2V, RANGE_2 for 1V, RANGE_3 for 0.4V, RANGE_4 for 0.2V. <br/>
+* AD5933.setRange() : Output Excitation Voltage setting. RANGE_1 for 2V, RANGE_2 for 1V, RANGE_3 for 0.4V, RANGE_4 for 0.2V. Need to select carefully depending on the range of impedance to be measured. <br/>
 
 
 ## References
