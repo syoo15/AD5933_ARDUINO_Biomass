@@ -2,7 +2,7 @@
 // Idea: Measure the change of capacitance over frequency 
 // Measured data are saved and plotted through Matlab program
 // Author: Seokchan Yoo
-// Date: April-03-2017
+// Date: April-09-2017
 // Reference: AD5933 Library codes are based on Il-Taek Kwon's work
 // URL Link: https://github.com/WuMRC/drive
 
@@ -18,7 +18,7 @@
 // Constant Variable Declarations
 // Future work: Store arrays efficiently so that we can save memory space and increase a number of frequency increment
 const int numofIncrement = 90;        // Modify this to set # of frequency increment. Limited to 90 due to the memory.
-const double calResistance = 10000;   // Modify this to be matched to the value of calibration resistance
+const double calResistance = 25000;   // Modify this to be matched to the value of calibration resistance
 double gainF[numofIncrement+1];
 double phShift[numofIncrement+1];
 double impVal[numofIncrement+ 1];
